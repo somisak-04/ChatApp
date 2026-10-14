@@ -1,0 +1,44 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: whatsapp-spring-boot-chat
+
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/chatdb?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&characterEncoding=UTF-8}
+    username: ${SPRING_DATASOURCE_USERNAME:root}
+    password: ${SPRING_DATASOURCE_PASSWORD:rootpassword}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      pool-name: ChatHikariCP
+      maximum-pool-size: 20
+      minimum-idle: 5
+      idle-timeout: 300000
+      connection-timeout: 20000
+      max-lifetime: 1200000
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          batch_size: 25
+        order_inserts: true
+        order_updates: true
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:9a4f2c8d3b7a1e6f5c8d0b2a4e6f8a1c3d5e7b9a2c4e6f8a1c3d5e7b9a2c4e6f8a1c3d5e7b9a2c4e6f8a1c3d5e7b9a2c4e6f8a1c3d5e7b9a2c4e6f8a1c3d5e7b}
+    expiration-ms: 86400000
+
+logging:
+  level:
+    root: INFO
+    com.chat.realtime: DEBUG

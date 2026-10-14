@@ -1,0 +1,6 @@
+{
+  "name": "WhatsApp Web - Java Spring Boot Real-Time Chat",
+  "description": "Production-grade Real-Time Chat application built with Java Spring Boot, WebSocket STOMP, Spring Security, JWT, MySQL, and a modern responsive WhatsApp Web frontend.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
